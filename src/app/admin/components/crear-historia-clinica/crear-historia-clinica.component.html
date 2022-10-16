@@ -1,0 +1,313 @@
+<mat-card class="p-4">
+
+    <div class="d-flex justify-content-end" >
+        <div class="d-flex justify-content-between" style="width: 15%;">Expediente: 1</div>
+        <div class="d-flex justify-content-between" style="width: 15%;">Fecha 01/10/2022</div>
+    </div>
+    <div class="example-container d-flex justify-content-around mt-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput [formControl]="nombre" required [(ngModel)]="historia_clinica.nombre">
+          <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Apellido Paterno</mat-label>
+            <input matInput [formControl]="apellido_paterno" required [(ngModel)]="historia_clinica.apellido_paterno">
+            <mat-error>El campo es requerido</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Apellido Materno</mat-label>
+            <input matInput [formControl]="apellido_materno" required [(ngModel)]="historia_clinica.apellido_materno">
+            <mat-error>El campo es requerido</mat-error>
+          </mat-form-field>
+
+
+    </div>
+
+    <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+        
+        <mat-form-field appearance="outline" style="width: 70%;">
+            <mat-label>Domicilio</mat-label>
+            <input matInput [formControl]="domicilio" required [(ngModel)]="historia_clinica.domicilio">
+            <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
+
+    </div>
+
+    <div class="example-container d-flex justify-content-around mt-4">
+        <mat-form-field appearance="outline">
+            <mat-label>Sexo</mat-label>
+            <mat-select [(ngModel)]="historia_clinica.sexo">
+              <mat-option value="{{sex}}" *ngFor="let sex of sex_options">{{sex}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Edad</mat-label>
+            <input matInput [formControl]="edad" required [(ngModel)]="historia_clinica.edad" pattern="[0-9]+">
+            <mat-error>El campo es requerido y solo acepta números enteros positivos</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Ocupacion</mat-label>
+            <input matInput [formControl]="ocupacion" required [(ngModel)]="historia_clinica.ocupacion">
+            <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
+
+
+
+
+    </div>
+
+    <mat-tab-group>
+        <mat-tab label="Motivo De Consulta">
+            <div class="example-container d-flex justify-content-around mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Motivo De Consulta</mat-label>
+                <textarea style="height: 200px; text-align: justify;" matInput [formControl]="motivo_consulta" [(ngModel)]="historia_clinica.motivo_consulta"></textarea>
+                <mat-hint align="start">Palabras textuales del paciente</mat-hint>
+                </mat-form-field>
+                
+            </div>
+         </mat-tab>
+        <mat-tab label="Circunstancias De Apracición"> 
+            <div class="example-container d-flex justify-content-around mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Circunstancias De Apracición</mat-label>
+                <textarea style="height: 200px; text-align: justify;" matInput [formControl]="circunstancias_aparicion" [(ngModel)]="historia_clinica.circunstancias_aparicion"></textarea>
+                <mat-hint align="start">Probables fechas, principales síntomas y posibles factores desencadenantes</mat-hint>
+                </mat-form-field>
+            </div>
+        </mat-tab>
+        <mat-tab label="Sintomas Detectados"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Sintomas Detectados</mat-label>
+                <textarea style="height: 200px; text-align: justify;" matInput [formControl]="sintomas_detectados" [(ngModel)]="historia_clinica.sintomas_detectados"></textarea>
+                <mat-hint align="start">Frecuencia de aparición, tiempo de duración y posibles soluciones o disminución de síntomas</mat-hint>
+                </mat-form-field>
+                
+            </div>
+        </mat-tab>
+        <mat-tab label="Descripción Física">    
+             <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+            <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+            <mat-label>Descripción Física</mat-label>
+            <textarea style="height: 200px; text-align: justify;" matInput [formControl]="descripcion_fisica" [(ngModel)]="historia_clinica.descripcion_fisica"></textarea>
+            </mat-form-field>  
+            </div> 
+        </mat-tab>
+        <mat-tab label="Demanda De Tratamiento"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Demanda De Tratamiento</mat-label>
+                <textarea style="height: 200px; text-align: justify;" matInput [formControl]="demanda_tratamiento" [(ngModel)]="historia_clinica.demanda_tratamiento"></textarea>
+                <mat-hint align="start">Manifiesta y Latente</mat-hint>
+                </mat-form-field>
+                
+            </div>
+        
+        </mat-tab>
+        <mat-tab label="Área Escolar"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Área Escolar</mat-label>
+                <textarea  style="height: 200px; text-align: justify;" matInput [formControl]="area_escolar" [(ngModel)]="historia_clinica.area_escolar"></textarea>
+                <mat-hint align="start">Desarrollo escolar; reprobaciones; problemas escolares y/o de conducta; logros; relación con compañeros</mat-hint>
+                </mat-form-field>
+                
+            </div>
+         </mat-tab>
+        <mat-tab label="Área Laboral"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Área Laboral</mat-label>
+                <textarea  style="height: 200px; text-align: justify;" matInput [formControl]="area_laboral" [(ngModel)]="historia_clinica.area_laboral"></textarea>
+                <mat-hint align="start">Tipo de empleos; duración; motivos de desempleo</mat-hint>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+        <mat-tab label="Acontecimientos Significativos En Su Vida"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Acontecimientos Significativos En Su Vida</mat-label>
+                <textarea style="height: 200px; text-align: justify;"  matInput [formControl]="acontecimientos_significativos" [(ngModel)]="historia_clinica.acontecimientos_significativos"></textarea>
+                <mat-hint align="start">logros; pérdidas; fracasos</mat-hint>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+        <mat-tab label="Desarrollo Psicosexual"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Desarrollo Psicosexual</mat-label>
+                <textarea style="height: 200px; text-align: justify;"  matInput [formControl]="desarrollo_psicosexual" [(ngModel)]="historia_clinica.desarrollo_psicosexual"></textarea>
+                <mat-hint align="start">Conocimientos sobre sexualidad; diferenciación de sexos; sexualidad en niñez y adolescencia; primera experiencia coital y repercusiones psicológicas, vida coital activa y prácticas de riesgo</mat-hint>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+        <mat-tab label="Familiograma"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Familiograma</mat-label>
+                <textarea  style="height: 200px; text-align: justify;" matInput [formControl]="familiograma" [(ngModel)]="historia_clinica.familiograma"></textarea>
+                <mat-hint align="start">Dos o tres generaciones</mat-hint>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+         <mat-tab label="Área Familiar y De Relación"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Área Familiar y De Relación</mat-label>
+                <textarea style="height: 200px; text-align: justify;" matInput [formControl]="area_familiar" [(ngModel)]="historia_clinica.area_familiar"></textarea>
+                <mat-hint align="start">Relación con padres; hermanos; presencia de violencia sexual; física y/o psicológica</mat-hint>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+         <mat-tab label="Mapeo Familiar"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Mapeo Familiar</mat-label>
+                <textarea style="height: 200px; text-align: justify;"  matInput [formControl]="mapeo_familiar" [(ngModel)]="historia_clinica.mapeo_familiar"></textarea>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+         <mat-tab label="Impresión Diagnóstica De La Familia"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Impresión Diagnóstica De La Familia</mat-label>
+                <textarea  style="height: 200px; text-align: justify;" matInput [formControl]="impresion_diagnostica" [(ngModel)]="historia_clinica.impresion_diagnostica"></textarea>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+         <mat-tab label="Hipótesis Familiar"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Hipótesis Familiar</mat-label>
+                <textarea  style="height: 200px; text-align: justify;" matInput [formControl]="hipotesis_familiar" [(ngModel)]="historia_clinica.hipotesis_familiar"></textarea>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+         <mat-tab label="Examen Mental"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Examen Mental</mat-label>
+                <textarea style="height: 200px; text-align: justify;" matInput [formControl]="examen_mental" [(ngModel)]="historia_clinica.examen_mental"></textarea>
+                <mat-hint align="start">Conciencia; atención; concentración; orientación; sensopercepción; pensamiento; intelecto; comprensión; calculo; memoria; animo; afecto; juicio; lenguaje; conducta</mat-hint>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+         <mat-tab label="Indicaciones Diagnosticas"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%; height: 200px !important;">
+                <mat-form-field appearance="outline" style="width: 600px; text-align: center; ">
+                <mat-label>Indicaciones Diagnosticas</mat-label>
+                <textarea  style="height: 200px; text-align: justify;" matInput [formControl]="indicaciones_dignosticas" [(ngModel)]="historia_clinica.indicaciones_dignosticas"></textarea>
+                </mat-form-field>
+            </div>
+         </mat-tab>
+         <mat-tab label="Impresiones Diagnosticas con DSM y CIE"> 
+            <div class="example-container d-flex justify-content-center mt-4" style="width: 100%;">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Eje</mat-label>
+                      <input matInput  value="" [formControl]="impresiones_diagnosticas_eje">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Código</mat-label>
+                        <input matInput  value="" [formControl]="impresiones_diagnosticas_codigo">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>DCM</mat-label>
+                        <input matInput  value="" [formControl]="impresiones_diagnosticas_dsm">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>CIE</mat-label>
+                        <input matInput  value="" [formControl]="impresiones_diagnosticas_cie">
+                      </mat-form-field>                    
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Transtorno</mat-label>
+                        <input matInput  value="" [formControl]="impresiones_diagnosticas_transtorno">
+                      </mat-form-field>
+                      <button mat-fab  color="primary" (click)="agregarNuevoDiagnostico()" [disabled]="camposLlenos()">
+                        <mat-icon>add</mat-icon>
+                      </button>
+            </div>
+            <div class="example-container d-flex justify-content-around mt-4" style="width: 100%;" *ngIf="historia_clinica.impresion_diagnostica.length != 0">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">Eje</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">DCM</th>
+                        <th scope="col">CIE</th>
+                        <th scope="col">Transtorno</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let impresion of historia_clinica.impresion_diagnostica index as i">
+                        <td>
+                            {{impresion.eje}}
+
+                        </td>
+                          <td>
+                            {{impresion.codigo}}
+       
+                          </td>  
+                          <td>
+                            {{impresion.dsm}}
+  
+                          </td>
+                          <td>
+                            {{impresion.cie}}
+                           
+                          </td>
+                          <td>
+                            {{impresion.transtorno}}
+                          </td>
+                          <td>
+                            <button mat-fab  fab-mini class="bg-danger" (click)="eliminarTranstorno(i)">
+                                <mat-icon>
+                                    delete
+                                </mat-icon>
+                            </button>
+                          </td>
+                      </tr>
+                    </tbody>
+                </table>
+
+             </div>
+         </mat-tab>
+
+      </mat-tab-group>
+      <button mat-raised-button color="primary" class="mt-4">Guardar</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+</mat-card>
