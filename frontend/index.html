@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--INCLUIR ANGULAR-->
+    <script src="./node_modules/angular/angular.js"></script>
+
+    <!--Incluir AngularMaterial-->
+    <script src="./node_modules/angular-material/angular-material.js"></script>
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.css">
+    <script src="./node_modules/angular-aria/angular-aria.js"></script>
+    <script src="./node_modules/angular-animate/angular-animate.js"></script>
+    <script src="./node_modules/angular-messages/angular-messages.js"></script>
+
+    <!--Cargamos el codigo principal js-->
+    <script src="./script.js"></script>
+
+
+
+    <!--INCLUIR ANGULAR ROUTING-->
+    <script src="./js/lib/angular.route.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <!--INCLUIR BOOTSTRAP-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    
+    <!--Importamos todos los controladores a usar-->
+    <script src="./controllers/home/home.controller.js"></script>
+    <script src="./controllers/pacientes/pacientes.controller.js"></script>
+    <script src="./controllers/expedientes/expedientes.controller.js"></script>
+
+</body>
+</html>
