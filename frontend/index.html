@@ -19,6 +19,9 @@
     <!--Cargamos el codigo principal js-->
     <script src="./script.js"></script>
 
+    <!--Material Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 
 
     <!--INCLUIR ANGULAR ROUTING-->
@@ -27,9 +30,64 @@
 </head>
 <body>
 
-    <div class="container">
-        <div ng-view></div>
+    <div ng-controller="homeController" layout="column" style="height: 500px;" ng-cloak>
+
+        <md-toolbar class="primary p-2" layout="row" style="display: flex; justify-content: space-between;">
+            <div>
+                <md-button ng-click="toggleSidenav()" class="md-flat primary">
+                  <md-icon>menu</md-icon>
+                </md-button>
+            </div>
+            <div>
+                <h1>Psicologia</h1>
+            </div>
+            <div>
+                <img src="" alt="" srcset="">
+            </div>
+        </md-toolbar>
+    
+        <section layout="row" flex>
+    
+    
+    
+          <md-sidenav class="md-sidenav-left" md-component-id="closeEventsDisabled" md-whiteframe="4" md-disable-close-events>
+    
+            <md-toolbar class="md-theme-indigo">
+              <h1 class="md-toolbar-tools">Menu</h1>
+            </md-toolbar>
+    
+            <md-content layout-margin="">
+              <!--Lista de opciones del sidenav-->
+              <md-list ng-cloak>
+                <md-list-item ng-repeat="opcion in opciones"  class="noright" href="{{opcion.link}}" ng-click="toggleSidenav()">
+                  <p>{{ opcion.description }}</p>
+                  <md-icon class="md-secondary">{{opcion.icon}}</md-icon>
+                </md-list-item>
+              </md-list>
+                
+              <!--Boton para cerrar el sidenav-->  
+              <md-button class="md-raised md-primary" ng-click="toggleSidenav()" class="md-accent">
+                Cerrar
+              </md-button>
+            </md-content>
+    
+          </md-sidenav>
+    
+          <md-content flex layout-padding>
+    
+            <div layout="column" layout-align="top center">
+                <div >
+                    <div ng-view></div>
+                </div>
+            </div>
+    
+          </md-content>
+    
+        </section>
+    
     </div>
+
+
 
     <!--INCLUIR BOOTSTRAP-->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -38,6 +96,7 @@
     <script src="./controllers/home/home.controller.js"></script>
     <script src="./controllers/pacientes/pacientes.controller.js"></script>
     <script src="./controllers/expedientes/expedientes.controller.js"></script>
+    <script src="./controllers/expedientes/expediente.creacion.js"></script>
 
 </body>
 </html>
