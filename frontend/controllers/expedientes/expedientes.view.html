@@ -1,1 +1,42 @@
-<div><span>{{message}}</span></div>
+<div style="width: 100%; height: 100%;">
+    <md-card>
+        <md-content>
+            <div layout-align="end center" layout="row" >
+                <md-button class="md-fab md-mini bg-primary" href="#!/crear-expediente">
+                    <md-icon class="text-white">add</md-icon>
+                </md-button>
+            </div>
+            <table class="table">
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">Id</th>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Fecha De Creación</th>
+                    <th scope="col">Ver</th>
+                    <th scope="col">Eliminar</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>1</td>
+                    <td>Brayan Rodriguez</td>
+                    <td>04/03/2023</td>
+                    <td>
+                        <md-button class="md-fab md-mini bg-primary">
+                            <md-icon class="text-white">visibility</md-icon>
+                        </md-button>
+                    </td>
+                    <td>
+                        <md-button class="md-fab md-mini bg-danger">
+                            <md-icon class="text-white">delete</md-icon>
+                        </md-button>
+                    </td>
+
+                  </tr>
+                </tbody>
+            </table>
+        </md-content>
+    </md-card>
+</div>

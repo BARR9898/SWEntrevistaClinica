@@ -1,0 +1,57 @@
+<div>
+    <md-card style="width: 100%; height: 550px;">
+        <md-content>
+            <form name="expedienteForm">
+                <md-tabs class="md-primary" md-no-ink-bar-color>
+                    <md-tab label="Paciente">
+                        <md-content class="md-padding">
+
+                            <div layout="row">
+                            
+                                <md-input-container flex="30">
+                                    <label>Nombre</label>
+                                    <input required name="nombre" ng-model="expediente.nombre" md-maxlength="40" pattern="[A-Za-záéíóú ]+">
+                                    <div ng-messages="expedienteForm.nombre.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 30 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container flex="30">
+                                    <label>Apellido Paterno</label>
+                                    <input required name="apellido_paterno" ng-model="expediente.apellido_paterno" md-maxlength="40" pattern="[A-Za-záéíúñ ]+">
+                                    <div ng-messages="expedienteForm.apellido_paterno.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 40 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container flex="30">
+                                    <label>Apellido Materno</label>
+                                    <input required name="apellido_materno" ng-model="expediente.apellido_materno" md-maxlength="40" pattern="[A-Za-záéíúñ ]+">
+                                    <div ng-messages="expedienteForm.apellido_materno.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 40 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                    </div>
+                                </md-input-container>
+
+
+                            </div>
+
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+
+                <div flex="100">
+                    <md-button class="md-fab md-mini bg-primary" ng-click="guardar()">
+                        <md-icon class="text-white">save</md-icon>
+                    </md-button>
+                </div>
+
+            </form>
+        </md-content>
+    </md-card>
+</div>
