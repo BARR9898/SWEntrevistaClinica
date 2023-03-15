@@ -41,6 +41,59 @@
 
                             </div>
 
+                            <div layout="row" layout-align="center center">
+                                <md-input-container flex="80" >
+                                    <label>Dirección</label>
+                                    <input required name="direccion" ng-model="expediente.direccion" md-maxlength="60" pattern="[A-Za-záéíúñ0-9# ]+">
+                                    <div ng-messages="expedienteForm.direccion.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 60 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+
+                            <div layout="row">
+
+                                <md-input-container flex="30" >
+                                    <label>Sexo</label>
+                                    <md-select ng-model="expediente.sexo">
+                                        <md-optgroup label="Seleccione una opción">
+                                          <md-option ng-repeat="sexo in sexos"
+                                                     value="{{sexo.value}}">{{sexo.descripcion}}</md-option>
+                                        </md-optgroup>
+                                    </md-select>
+                                    <div ng-messages="expedienteForm.direccion.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 60 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container flex="30" >
+                                    <label>Edad</label>
+                                    <input required name="edad" ng-model="expediente.edad" md-maxlength="3" pattern="[0-9]+">
+                                    <div ng-messages="expedienteForm.edad.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Maximo 2 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres numeros positivos.</div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container flex="30" >
+                                    <label>Ocupación</label>
+                                    <input required name="ocupacion" ng-model="expediente.ocupacion" md-maxlength="50" pattern="[A-Za-záéíóú ]+">
+                                    <div ng-messages="expedienteForm.ocupacion.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Maximo 50 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfabéticos.</div>
+                                    </div>
+                                </md-input-container>
+
+
+
+                            </div>
+
                         </md-content>
                     </md-tab>
                 </md-tabs>
