@@ -1,110 +1,626 @@
 <div>
-    <md-card style="width: 100%; height: 550px;">
-        <md-content>
-            <form name="expedienteForm">
-                <md-tabs class="md-primary" md-no-ink-bar-color>
-                    <md-tab label="Paciente">
-                        <md-content class="md-padding">
+    <md-card style="width: 100%; height: 950px;">
+        <form name="expedienteForm" style="width: 100%; height: 950px;">
+            <md-tabs class="md-primary" md-no-ink-bar-color style="width: 100%; min-height:100%!important;">
+                <md-tab label="Paciente" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
 
-                            <div layout="row">
-                            
-                                <md-input-container flex="30">
-                                    <label>Nombre</label>
-                                    <input required name="nombre" ng-model="expediente.nombre" md-maxlength="40" pattern="[A-Za-záéíóú ]+">
-                                    <div ng-messages="expedienteForm.nombre.$error">
-                                        <div ng-message="required">El dato es requerido.</div>
-                                        <div ng-message="md-maxlength">Máximo 30 caracteres.</div>
-                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
-                                    </div>
-                                </md-input-container>
+                        <div layout="row" layout-align="center center">
 
-                                <md-input-container flex="30">
-                                    <label>Apellido Paterno</label>
-                                    <input required name="apellido_paterno" ng-model="expediente.apellido_paterno" md-maxlength="40" pattern="[A-Za-záéíúñ ]+">
-                                    <div ng-messages="expedienteForm.apellido_paterno.$error">
-                                        <div ng-message="required">El dato es requerido.</div>
-                                        <div ng-message="md-maxlength">Máximo 40 caracteres.</div>
-                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
-                                    </div>
-                                </md-input-container>
+                            <md-input-container flex="30">
+                                <label>Nombre</label>
+                                <input required name="nombre" ng-model="expediente.nombre" md-maxlength="40"
+                                    pattern="[A-Za-záéíóú ]+">
+                                <div ng-messages="expedienteForm.nombre.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 30 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                </div>
+                            </md-input-container>
 
-                                <md-input-container flex="30">
-                                    <label>Apellido Materno</label>
-                                    <input required name="apellido_materno" ng-model="expediente.apellido_materno" md-maxlength="40" pattern="[A-Za-záéíúñ ]+">
-                                    <div ng-messages="expedienteForm.apellido_materno.$error">
-                                        <div ng-message="required">El dato es requerido.</div>
-                                        <div ng-message="md-maxlength">Máximo 40 caracteres.</div>
-                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
-                                    </div>
-                                </md-input-container>
+                            <md-input-container flex="30">
+                                <label>Apellido Paterno</label>
+                                <input required name="apellido_paterno" ng-model="expediente.apellido_paterno"
+                                    md-maxlength="40" pattern="[A-Za-záéíúñ ]+">
+                                <div ng-messages="expedienteForm.apellido_paterno.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 40 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex="30">
+                                <label>Apellido Materno</label>
+                                <input required name="apellido_materno" ng-model="expediente.apellido_materno"
+                                    md-maxlength="40" pattern="[A-Za-záéíúñ ]+">
+                                <div ng-messages="expedienteForm.apellido_materno.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 40 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                </div>
+                            </md-input-container>
 
 
+                        </div>
+
+                        <div layout="row" layout-align="center center">
+                            <md-input-container flex="80">
+                                <label>Dirección</label>
+                                <input required name="direccion" ng-model="expediente.direccion" md-maxlength="60"
+                                    pattern="[A-Za-záéíúñ0-9# ]+">
+                                <div ng-messages="expedienteForm.direccion.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 60 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="30">
+                                <label>Sexo</label>
+                                <md-select ng-model="expediente.sexo">
+                                    <md-optgroup label="Seleccione una opción">
+                                        <md-option ng-repeat="sexo in sexos"
+                                            value="{{sexo.value}}">{{sexo.descripcion}}</md-option>
+                                    </md-optgroup>
+                                </md-select>
+                                <div ng-messages="expedienteForm.direccion.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 60 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfabeticos.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex="30">
+                                <label>Edad</label>
+                                <input required name="edad" ng-model="expediente.edad" md-maxlength="3"
+                                    pattern="[0-9]+">
+                                <div ng-messages="expedienteForm.edad.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Maximo 2 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres numeros positivos.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex="30">
+                                <label>Ocupación</label>
+                                <input required name="ocupacion" ng-model="expediente.ocupacion" md-maxlength="50"
+                                    pattern="[A-Za-záéíóú ]+">
+                                <div ng-messages="expedienteForm.ocupacion.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Maximo 50 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfabéticos.</div>
+                                </div>
+                            </md-input-container>
+
+
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Motivo De Consulta" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Motivo De Consulta</label>
+                                <textarea name="motivoConsulta" cols="30" rows="10"
+                                    ng-model="expediente.motivo_consulta" required md-maxlength="250"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.motivoConsulta.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Motivo De Consulta" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Circunstancias De Aparición</label>
+                                <textarea name="circunstanciasAparicion" cols="30" rows="10"
+                                    ng-model="expediente.circunstancias_aparicion" required md-maxlength="250"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.circunstanciasAparicion.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 250 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+
+                <md-tab label="Sintomas Detectados" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="column" flex="100">
+
+                            <div layout="row" flex="100" layout-align="center center">
+                                <div layout="row" flex="40">
+                                    <md-input-container flex="100">
+                                        <label>Sintoma</label>
+                                        <input  name="sintomas" type="text" md-maxlength="20" pattern="[A-Za-z0-9,.áéíóúñ ]+" ng-model="auxSintomas">
+                                        <div ng-messages="expedienteForm.sintomas.$error">
+                                            <div ng-message="required">El dato es requerido.</div>
+                                            <div ng-message="md-maxlength">Máximo 20 caracteres.</div>
+                                            <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" flex="15">
+                                    <md-button class="md-fab md-mini bg-primary" ng-click="guardarSintoma()" ng-disabled="auxSintomas == '' || expedienteForm.sintomas.$invalid ">
+                                        <md-icon>
+                                            add
+                                        </md-icon>
+                                    </md-button>
+                                </div>
                             </div>
 
-                            <div layout="row" layout-align="center center">
-                                <md-input-container flex="80" >
-                                    <label>Dirección</label>
-                                    <input required name="direccion" ng-model="expediente.direccion" md-maxlength="60" pattern="[A-Za-záéíúñ0-9# ]+">
-                                    <div ng-messages="expedienteForm.direccion.$error">
-                                        <div ng-message="required">El dato es requerido.</div>
-                                        <div ng-message="md-maxlength">Máximo 60 caracteres.</div>
-                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
-                                    </div>
-                                </md-input-container>
+                            <div layout="row" flex="100" layout-align="center center">
+                                <span>{{expediente.sintomas.length}} sintomas agregados.</span>
+                                <md-checkbox aria-label="Mostrar sintomas" ng-click="mostrarSintomas = !mostrarSintomas" ng-disabled="expediente.sintomas.length == 0">
+                                   Mostrar Síntomas
+                                  </md-checkbox>
                             </div>
 
-                            <div layout="row">
-
-                                <md-input-container flex="30" >
-                                    <label>Sexo</label>
-                                    <md-select ng-model="expediente.sexo">
-                                        <md-optgroup label="Seleccione una opción">
-                                          <md-option ng-repeat="sexo in sexos"
-                                                     value="{{sexo.value}}">{{sexo.descripcion}}</md-option>
-                                        </md-optgroup>
-                                    </md-select>
-                                    <div ng-messages="expedienteForm.direccion.$error">
-                                        <div ng-message="required">El dato es requerido.</div>
-                                        <div ng-message="md-maxlength">Máximo 60 caracteres.</div>
-                                        <div ng-message="pattern">Solo caracteres alfabeticos.</div>
-                                    </div>
-                                </md-input-container>
-
-                                <md-input-container flex="30" >
-                                    <label>Edad</label>
-                                    <input required name="edad" ng-model="expediente.edad" md-maxlength="3" pattern="[0-9]+">
-                                    <div ng-messages="expedienteForm.edad.$error">
-                                        <div ng-message="required">El dato es requerido.</div>
-                                        <div ng-message="md-maxlength">Maximo 2 caracteres.</div>
-                                        <div ng-message="pattern">Solo caracteres numeros positivos.</div>
-                                    </div>
-                                </md-input-container>
-
-                                <md-input-container flex="30" >
-                                    <label>Ocupación</label>
-                                    <input required name="ocupacion" ng-model="expediente.ocupacion" md-maxlength="50" pattern="[A-Za-záéíóú ]+">
-                                    <div ng-messages="expedienteForm.ocupacion.$error">
-                                        <div ng-message="required">El dato es requerido.</div>
-                                        <div ng-message="md-maxlength">Maximo 50 caracteres.</div>
-                                        <div ng-message="pattern">Solo caracteres alfabéticos.</div>
-                                    </div>
-                                </md-input-container>
-
-
-
+                            <div layout="row" flex="100" ng-show="expediente.sintomas.length > 0 && mostrarSintomas == true" class="mt-4">
+                                <table class="table table-hover">
+                                    <thead>
+                                      <tr class="text-center">
+                                        <th scope="col">Sintoma</th>
+                                        <th scope="col">Acciones</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr ng-repeat="sintoma in expediente.sintomas track by $index" >
+                                        <td class="text-center" >{{sintoma}}</td>
+                                        <td class="text-center">
+                                            <md-button class="md-fab md-mini bg-danger" ng-click="eliminarSintoma($index)">
+                                                <md-icon class="text-white">
+                                                    delete
+                                                </md-icon>
+                                            </md-button>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
                             </div>
 
-                        </md-content>
-                    </md-tab>
-                </md-tabs>
 
-                <div flex="100">
-                    <md-button class="md-fab md-mini bg-primary" ng-click="guardar()">
-                        <md-icon class="text-white">save</md-icon>
-                    </md-button>
-                </div>
 
-            </form>
-        </md-content>
+                          
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Descripción Física" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Descripción Física</label>
+                                <textarea name="descricpionFisica" cols="30" rows="10"
+                                    ng-model="expediente.descripcion_fisica" required md-maxlength="60"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.descricpionFisica.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 60 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+
+                <md-tab label="Demanda De Tratamiento" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Demanda De Tratamiento</label>
+                                <textarea name="demandaTratamiento" cols="30" rows="10"
+                                    ng-model="expediente.demanda_tratamiento" required md-maxlength="60"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.demandaTratamiento.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 60 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Área Escolar" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Área Escolar</label>
+                                <textarea name="areaEscolar" cols="30" rows="10"
+                                    ng-model="expediente.area_escolar" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.areaEscolar.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Área Laboral" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Área Laboral</label>
+                                <textarea name="areaLaboral" cols="30" rows="10"
+                                    ng-model="expediente.area_laboral" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.areaLaboral.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Acontecimientos Significativos En Su Vida" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Acontecimientos Significativos En Su Vida</label>
+                                <textarea name="acontecimientosSignificativos" cols="30" rows="10"
+                                    ng-model="expediente.acontecimientos_significativos" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.acontecimientosSignificativos.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Desarrollo Psicosexual" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Desarrollo Psicosexual</label>
+                                <textarea name="desarrolloPsicosexual" cols="30" rows="10"
+                                    ng-model="expediente.desarrollo_psicosexual" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.desarrolloPsicosexual.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Familiograma" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Familiograma</label>
+                                <textarea name="familiograma" cols="30" rows="10"
+                                    ng-model="expediente.familiograma" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.familiograma.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Mapeo Familiar" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Mapeo Familiar</label>
+                                <textarea name="mapeoFamiliar" cols="30" rows="10"
+                                    ng-model="expediente.mapeo_familiar" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.mapeoFamiliar.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Impresión Diagnóstica De La Familia" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Impresión Diagnóstica De La Familia</label>
+                                <textarea name="impresionDiagnosticaFamilia" cols="30" rows="10"
+                                    ng-model="expediente.impresion_diagnostica_familia" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.impresionDiagnosticaFamilia.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Hipótesis Familiar" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Hipótesis Familiar</label>
+                                <textarea name="hipotesisFamiliar" cols="30" rows="10"
+                                    ng-model="expediente.hipotesis_familiar" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.hipotesisFamiliar.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Examen Mental" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Examen Mental</label>
+                                <textarea name="examenMental" cols="30" rows="10"
+                                    ng-model="expediente.examen_mental" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.examenMental.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Indicaciones Diagnósticas" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100">
+
+                        <div layout="row" layout-align="center center">
+
+                            <md-input-container flex="60">
+                                <label>Indicaciones Diagnósticas</label>
+                                <textarea name="indicacionesDiagnosticas" cols="30" rows="10"
+                                    ng-model="expediente.indicaciones_diagnosticas" required md-maxlength="120"
+                                    pattern="[A-Za-záéíúñ,.0-9 ]+"></textarea>
+                                <div ng-messages="expedienteForm.indicacionesDiagnosticas.$error">
+                                    <div ng-message="required">El dato es requerido.</div>
+                                    <div ng-message="md-maxlength">Máximo 120 caracteres.</div>
+                                    <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+
+                    </md-content>
+                </md-tab>
+
+                <md-tab label="Impresiones Diagnósticas Con DCM y CIE" style="width: 100%; height: 950px!important;">
+                    <md-content class="md-padding" flex="100" class="mt-4">
+
+                        <div layout="column" flex="100" layout-align="center center">
+
+                            <!--INPUTS Y BUTTON-->
+                            <div layout="row" flex="100" layout-align="center center">
+
+                                <md-input-container flex="15">
+                                    <label>Eje</label>
+                                    <input name="impresionesDiagnosticasDcmCie_eje"
+                                        ng-model="auxEje"  md-maxlength="10"
+                                        pattern="[A-Za-záéíúñ,.0-9 ]+">
+                                    <div ng-messages="expedienteForm.impresionesDiagnosticasDcmCie_eje.$error && expedienteForm.impresionesDiagnosticasDcmCie_eje.$pristine">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 10 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                    </div>
+                                </md-input-container>
+    
+                                <md-input-container flex="15">
+                                    <label>Código</label>
+                                    <input name="impresionesDiagnosticasDcmCie_codigo"
+                                        ng-model="auxCodigo"  md-maxlength="10"
+                                        pattern="[A-Za-záéíúñ,.0-9 ]+">
+                                    <div ng-messages="expedienteForm.impresionesDiagnosticasDcmCie_codigo.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 10 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                    </div>
+                                </md-input-container>
+    
+                                <md-input-container flex="15">
+                                    <label>DCM</label>
+                                    <input name="impresionesDiagnosticasDcmCie_dcm"
+                                        ng-model="auxDcm" md-maxlength="10"
+                                        pattern="[A-Za-záéíúñ,.0-9 ]+">
+                                    <div ng-messages="expedienteForm.impresionesDiagnosticasDcmCie_dcm.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 10 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                    </div>
+                                </md-input-container>
+    
+                                <md-input-container flex="15">
+                                    <label>CIE</label>
+                                    <input name="impresionesDiagnosticasDcmCie_cie"
+                                        ng-model="auxCie"  md-maxlength="10"
+                                        pattern="[A-Za-záéíúñ,.0-9 ]+">
+                                    <div ng-messages="expedienteForm.impresionesDiagnosticasDcmCie_cie.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 10 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                    </div>
+                                </md-input-container>
+    
+                                <md-input-container flex="15">
+                                    <label>Transtorno</label>
+                                    <input name="impresionesDiagnosticasDcmCie_transtorno"
+                                        ng-model="auxTranstorno"  md-maxlength="20"
+                                        pattern="[A-Za-záéíúñ,.0-9 ]+">
+                                    <div ng-messages="expedienteForm.impresionesDiagnosticasDcmCie_transtorno.$error">
+                                        <div ng-message="required">El dato es requerido.</div>
+                                        <div ng-message="md-maxlength">Máximo 20 caracteres.</div>
+                                        <div ng-message="pattern">Solo caracteres alfanuméricos, comas y puntos.</div>
+                                    </div>
+                                </md-input-container>
+    
+                                <div flex="15" layout="row" layout-align="center center">
+                                    <md-button class="md-fab md-mini bg-primary" ng-disabled="(
+                                        auxEje == '' || auxCodigo == '' || auxDcm == '' || auxCie == '' || auxTranstorno == '' || 
+                                    expedienteForm.impresionesDiagnosticasDcmCie_codigo.$invalid || 
+                                    expedienteForm.impresionesDiagnosticasDcmCie_eje.$invalid ||
+                                    expediente.impresionesDiagnosticasDcmCie_dcm.$invalid ||
+                                    expediente.impresionesDiagnosticasDcmCie_transtorno.$invalid) " ng-click="guardarImpresionDiagnosticaDcmCie()">
+                                        <md-icon class="text-white">add</md-icon>
+                                    </md-button>
+                                </div>
+    
+                            </div>
+
+                            <!--MD-CHECK Y LEYENDA DE DATOS INSERTADOS-->
+                            <div  layout="row" flex="100" layout-align="center center">
+                                <span> {{expediente.impresiones_diagnosticas_dcm_cie.length}} datos agregados.</span>
+                                <md-checkbox ng-click="mostrarDiagnosticoDcmCie = !mostrarDiagnosticoDcmCie" ng-diabled="expediente.impresiones_diagnosticas_dcm_cie.length > 0">
+                                    Mostrar tabla con datos.
+                                </md-checkbox>
+                            </div>
+
+
+                            <!--TABLE DE DATOS-->
+                            <div layout="row" flex="100" layout-align="center center" ng-show="expediente.impresiones_diagnosticas_dcm_cie.length > 0 && mostrarDiagnosticoDcmCie == true">
+                                <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Eje</th>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">DCM</th>
+                                        <th scope="col">CIE</th>
+                                        <th scope="col">Transtorno</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr ng-repeat="transtorno in expediente.impresiones_diagnosticas_dcm_cie track by $index">
+                                        <td>{{transtorno.eje}}</td>
+                                        <td>{{transtorno.codigo}}</td>
+                                        <td>{{transtorno.dcm}}</td>
+                                        <td>{{transtorno.cie}}</td>
+                                        <td>{{transtorno.transtorno}}</td>
+                                        <td>
+                                            <md-button class="md-fab md-mini bg-danger" ng-click="eliminarImpresionDiagnosticaDcmCie($index)">
+                                                <md-icon class="text-white">delete</md-icon>
+                                            </md-button>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+
+                        </div>
+
+                        <div layout="row" flex="100" layout-align="center center" class="mt-4">
+                            <md-button class="md-fab  bg-primary" ng-click="guardar()" ng-disabled="expedienteForm.$invalid">
+                                <md-icon class="text-white">save</md-icon>
+                            </md-button>
+                        </div>
+
+                        <div layout="row" flex="100" layout-align="center center" class="mt-4" ng-show="expedienteForm.$invalid">
+                            <span  class="text-danger">El formulario contiene errores o faltan campos por llenar.</span>
+                        </div>
+
+                        <div layout="row" flex="100" layout-align=" center" class="mt-4" ng-show="expedienteForm.$valid">
+                            <span class="text-success mr-2">Formulario Correcto</span>
+                            <md-icon class="text-success m-0">done</md-icon>
+                        </div>
+
+
+
+
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+
+
+        </form>
     </md-card>
 </div>
