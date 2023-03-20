@@ -33,7 +33,7 @@ app.controller("loginController",function($scope,$http){
         description: "",
         rol: "Administrador"
     }
-
+  //Test
     $http.post("http://localhost:3002/api/auth/register",data)
     .then(res => {
         console.log('RESPONSE' , res);
