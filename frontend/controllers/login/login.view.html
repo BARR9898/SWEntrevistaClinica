@@ -1,0 +1,53 @@
+<div layout="column" flex="100">
+    <form name="loginForm">
+
+
+        <!--NAME-->
+        <div layout="row" flex="100" layout-align="center center">
+            <md-input-container flex="50">
+                <label>Nombre</label>
+                <input type="text" name="name" md-maxlength="30" ng-model="user.name" pattern="[a-zA-Záéíóú ]+">
+                <div ng-messages="loginForm.name.$error">
+                    <div ng-message="md-maxlength">Máximo 30 caracteres.</div>
+                    <div ng-message="pattern">Solo caracteres alfabéticos.</div>
+
+                </div>
+            </md-input-container>
+        </div>
+
+
+        <!--EMAIL-->
+        <div layout="row" flex="100" layout-align="center center">
+            <md-input-container flex="50">
+                <label>Correo</label>
+                <input type="email" name="email" md-maxlength="30" ng-model="user.email">
+                <div ng-messages="loginForm.email.$error">
+                    <div ng-message="md-maxlength">Máximo 30 caracteres.</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <!--PASSWORD-->
+        <div layout="row" flex="100" layout-align="center center">
+            <md-input-container flex="50">
+                <label>Contraseña</label>
+                <input type="password" name="password" md-maxlength="20" md-minlength="5" ng-model="user.pas">
+                <div ng-messages="loginForm.password.$error">
+                    <div ng-message="md-maxlength">Máximo 20 caractéres.</div>
+                    <div ng-message="md-minlength">Mínimo 5 caractéres.</div>
+
+                </div>
+            </md-input-container>
+
+        </div>
+
+        <!--BUTTON SAVE-->
+        <div layout="row" flex="100" layout-align="center center">
+            <md-button class="md-raised bg-primary text-white" ng-click="guardarUsuario()">
+                Iniciar Sesión
+            </md-button>
+        </div>
+
+
+    </form>
+</div>
